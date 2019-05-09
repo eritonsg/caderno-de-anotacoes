@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.validation.constraints.NotBlank;
 
 @Entity(name = "anotacoes")
@@ -31,6 +32,11 @@ public class Anotacao {
 		this.titulo = titulo;
 		this.conteudo = conteudo;
 		this.cadastro = cadastro;
+	}
+	
+	@PrePersist
+	public void prePersist() {
+		this.cadastro = LocalDateTime.now();
 	}
 
 	public Long getId() {
