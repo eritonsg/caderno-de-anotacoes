@@ -10,6 +10,7 @@ O projeto consiste uma aplicação web que funciona como um caderno de anotaçõ
 
 ### Frameworks
 - Spring Framework
+- Spring Boot
 - Spring MVC
 - Spring Data JPA
 
