@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,6 +39,28 @@ public class AnotacaoController {
 		anotacaoService.salvar(anotacao);
 		
 		redirectAttributes.addFlashAttribute("mensagem", "Anotação criada com sucesso!");
+		
+		return new ModelAndView("redirect:/anotacoes/nova");
+	}
+	
+	@GetMapping("/{id}/editar")
+	public ModelAndView editar(@PathVariable Long id) {
+		ModelAndView mv = new ModelAndView("anotacoes/anotacoes-cadastro");
+		mv.addObject("anotacao", anotacaoService.buscarPorID(id));
+		return mv;
+	}
+	
+	@PostMapping("/{id}/editar")
+	public ModelAndView atualizar(@PathVariable Long id,
+			@Valid Anotacao anotacao, BindingResult bindingResult,
+			RedirectAttributes redirectAttributes) {
+		if (bindingResult.hasErrors()) {
+			return nova(anotacao);
+		}
+		
+		anotacaoService.atualizar(id, anotacao);
+		
+		redirectAttributes.addFlashAttribute("mensagem", "Anotação atualizada com sucesso!");
 		
 		return new ModelAndView("redirect:/anotacoes/nova");
 	}
