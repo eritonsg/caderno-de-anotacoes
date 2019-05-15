@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.workjava.cadernodeanotacoes.model.Anotacao;
 import com.workjava.cadernodeanotacoes.repository.AnotacaoRepository;
+import com.workjava.cadernodeanotacoes.service.AnotacaoService;
 
 @Controller
 @RequestMapping(value = "/anotacoes")
@@ -20,6 +21,9 @@ public class AnotacaoController {
 
 	@Autowired
 	private AnotacaoRepository repo;
+	
+	@Autowired
+	private AnotacaoService anotacaoService;
 
 	@GetMapping("/nova")
 	public ModelAndView nova(Anotacao anotacao) {
@@ -35,7 +39,7 @@ public class AnotacaoController {
 			return nova(anotacao);
 		}
 		
-		repo.save(anotacao);
+		anotacaoService.salvar(anotacao);
 		
 		redirectAttributes.addFlashAttribute("mensagem", "Anotação criada com sucesso!");
 		
