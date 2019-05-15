@@ -12,15 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.workjava.cadernodeanotacoes.model.Anotacao;
-import com.workjava.cadernodeanotacoes.repository.AnotacaoRepository;
 import com.workjava.cadernodeanotacoes.service.AnotacaoService;
 
 @Controller
 @RequestMapping(value = "/anotacoes")
 public class AnotacaoController {
-
-	@Autowired
-	private AnotacaoRepository repo;
 	
 	@Autowired
 	private AnotacaoService anotacaoService;
@@ -49,7 +45,7 @@ public class AnotacaoController {
 	@GetMapping
 	public ModelAndView listar() {
 		ModelAndView mv = new ModelAndView("anotacoes/anotacoes-listar");
-		mv.addObject("anotacoes", repo.findAll());
+		mv.addObject("anotacoes", anotacaoService.buscarTodos());
 		return mv;
 	}
 

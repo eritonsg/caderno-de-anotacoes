@@ -1,5 +1,7 @@
 package com.workjava.cadernodeanotacoes.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ public class AnotacaoService {
 	
 	public void salvar(Anotacao anotacao) {
 		repo.save(anotacao);
+	}
+	
+	public List<Anotacao> buscarTodos() {
+		return repo.findAll();
 	}
 
 }
