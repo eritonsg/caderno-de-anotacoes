@@ -1,6 +1,6 @@
 # Projeto Caderno de Anotações
 ## Este projeto foi desenvolvido no Workshop de Java em 2018
-O projeto consiste uma aplicação web que funciona como um caderno de anotações, nele, o usuário pode registrar e consultar suas anotações.
+O projeto consiste numa aplicação web que funciona como um caderno de anotações. Nele, o usuário pode registrar, editar e consultar suas anotações.
 
 ### IDE Utilizada
 - Spring Tools Suite 4
@@ -29,7 +29,7 @@ O projeto consiste uma aplicação web que funciona como um caderno de anotaçõ
 # Imagens da aplicação
 
 Página Inicial  
-![Página inicial](http://i63.tinypic.com/16bkgmu.png)
+![Página inicial](http://i68.tinypic.com/33fdb8i.png)
 
 Cadastro de anotações  
-![Nova anotação](http://i67.tinypic.com/3446qug.png)
+![Nova anotação](http://i68.tinypic.com/20sytyv.png)
